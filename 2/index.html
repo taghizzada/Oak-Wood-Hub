@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Oakwood Hub - Student & Parent Life</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-hub-background font-sans text-gray-800 antialiased">
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex justify-between items-center py-4 md:justify-start md:space-x-10"
+        >
+          <!-- Logo/School Name -->
+          <div class="flex justify-start lg:w-0 lg:flex-1">
+            <a
+              href="#"
+              class="text-2xl font-extrabold text-hub-primary transition duration-300"
+            >
+              Oakwood Student Hub
+            </a>
+          </div>
+
+          <!-- Desktop Navigation Links -->
+          <nav class="hidden md:flex space-x-10">
+            <a
+              href="#dashboard"
+              class="text-base font-medium text-gray-700 hover:text-hub-primary transition duration-300"
+              >Dashboard</a
+            >
+            <a
+              href="#news"
+              class="text-base font-medium text-gray-700 hover:text-hub-primary transition duration-300"
+              >Latest News</a
+            >
+            <a
+              href="#calendar"
+              class="text-base font-medium text-gray-700 hover:text-hub-primary transition duration-300"
+              >Calendar</a
+            >
+            <a
+              href="#resources"
+              class="text-base font-medium text-gray-700 hover:text-hub-primary transition duration-300"
+              >Resources</a
+            >
+          </nav>
+
+          <!-- CTA Button and Login Link -->
+          <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+            <!-- Notifications/Alerts -->
+            <a
+              href="#alerts"
+              class="text-gray-500 hover:text-hub-primary transition duration-300 relative mr-6"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                ></path>
+              </svg>
+              <!-- Badge for new notifications -->
+              <span
+                class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-hub-secondary rounded-full"
+                >3</span
+              >
+            </a>
+
+            <!-- Portal Login Button -->
+            <a
+              href="#portal"
+              class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-lg shadow-md text-base font-medium text-white bg-hub-primary hover:bg-emerald-700 transition duration-300 transform hover:scale-105"
+            >
+              My Portal
+            </a>
+          </div>
+
+          <!-- Mobile Menu Button (Hamburger) -->
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-button"
+              class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-hub-primary"
+            >
+              <svg
+                class="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu (Hidden by Default) -->
+      <div id="mobile-menu" class="hidden md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-inner">
+          <a
+            href="#dashboard"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-hub-primary hover:bg-hub-background"
+            >Dashboard</a
+          >
+          <a
+            href="#news"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-hub-primary hover:bg-hub-background"
+            >Latest News</a
+          >
+          <a
+            href="#calendar"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-hub-primary hover:bg-hub-background"
+            >Calendar</a
+          >
+          <a
+            href="#resources"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-hub-primary hover:bg-hub-background"
+            >Resources</a
+          >
+          <!-- Portal Login in Mobile Menu -->
+          <a
+            href="#portal"
+            class="block px-3 py-2 rounded-md text-base font-medium text-white bg-hub-primary mt-2 text-center hover:bg-emerald-700"
+            >My Portal</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <!-- Welcome / Alert Banner (Dashboard) -->
+      <section id="dashboard" class="mb-10">
+        <div
+          class="bg-hub-primary p-6 rounded-xl shadow-xl text-white md:flex md:justify-between md:items-center"
+        >
+          <div>
+            <h1 class="text-3xl font-extrabold tracking-tight">
+              Welcome Back, Oakwood Family!
+            </h1>
+            <p class="mt-1 text-emerald-200">
+              Check the latest announcements and your child's assignment
+              schedule below.
+            </p>
+          </div>
+          <!-- Quick Link Button -->
+          <div class="mt-4 md:mt-0 flex-shrink-0">
+            <a
+              href="#portal"
+              class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-hub-primary bg-white hover:bg-gray-100 transition duration-300"
+            >
+              Access Gradebook
+            </a>
+          </div>
+        </div>
+
+        <!-- Emergency Alert Example  -->
+        <div
+          class="mt-4 p-4 rounded-xl bg-hub-secondary/20 border-l-4 border-hub-secondary text-hub-primary font-medium flex items-start"
+        >
+          <svg
+            class="h-6 w-6 text-hub-secondary mr-3 flex-shrink-0 mt-0.5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 9v2m0 4h.01m-6.938-7.567l5.485-9.352a1.002 1.002 0 011.854 0l5.485 9.352a1 1 0 01-.462 1.488l-10.97 6.275a1 1 0 01-.462-1.488z"
+            ></path>
+          </svg>
+          <p>
+            <strong class="font-bold">Weather Alert:</strong> All afternoon
+            outdoor activities are canceled today due to expected heavy rain.
+            Check your email for rescheduled times.
+          </p>
+        </div>
+      </section>
+
+      <!-- Two-Column Layout: News Feed & Calendar -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-8">
+        <!-- LEFT COLUMN: Latest News (2/3 width on desktop) -->
+        <section id="news" class="lg:col-span-2 space-y-8">
+          <h2
+            class="text-2xl font-bold text-gray-900 border-b pb-2 border-gray-200"
+          >
+            Latest School News
+          </h2>
+
+          <!-- News Item 1 -->
+          <article
+            class="flex flex-col md:flex-row bg-white rounded-xl shadow-md overflow-hidden card-hover-scale transition duration-300"
+          >
+            <img
+              class="h-48 w-full md:h-auto md:w-48 object-cover"
+              src="https://placehold.co/400x300/059669/FFFFFF?text=Library+Update"
+              alt="Students reading in the updated library."
+              onerror="this.onerror=null;this.src='https://placehold.co/400x300/059669/FFFFFF?text=Library+Update';"
+            />
+            <div class="p-6 flex flex-col justify-between">
+              <div>
+                <p class="text-sm font-medium text-hub-primary">
+                  <span
+                    class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-hub-primary/10 text-hub-primary mr-2"
+                    >Academics</span
+                  >
+                  <time datetime="2025-10-31" class="text-gray-500"
+                    >October 31, 2025</time
+                  >
+                </p>
+                <h3
+                  class="mt-2 text-xl font-bold text-gray-900 hover:text-hub-primary transition duration-300"
+                >
+                  Grand Opening of the New Innovation Center
+                </h3>
+                <p class="mt-3 text-gray-500 line-clamp-3">
+                  Our new multi-media Innovation Center is now open for all
+                  students! It features 3D printers, coding labs, and a
+                  collaborative workspace. Read more about how to book a session
+                  for your class.
+                </p>
+              </div>
+              <div class="mt-4">
+                <a
+                  href="#"
+                  class="text-hub-primary font-semibold hover:underline"
+                >
+                  Continue Reading &rarr;
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- News Item 2 -->
+          <article
+            class="flex flex-col md:flex-row bg-white rounded-xl shadow-md overflow-hidden card-hover-scale transition duration-300"
+          >
+            <img
+              class="h-48 w-full md:h-auto md:w-48 object-cover"
+              src="https://placehold.co/400x300/FBBF24/6B4B03?text=Coach+Announcement"
+              alt="Image of a new sports coach."
+              onerror="this.onerror=null;this.src='https://placehold.co/400x300/FBBF24/6B4B03?text=Coach+Announcement';"
+            />
+            <div class="p-6 flex flex-col justify-between">
+              <div>
+                <p class="text-sm font-medium text-hub-secondary">
+                  <span
+                    class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-hub-secondary/10 text-hub-secondary mr-2"
+                    >Sports</span
+                  >
+                  <time datetime="2025-10-25" class="text-gray-500"
+                    >October 25, 2025</time
+                  >
+                </p>
+                <h3
+                  class="mt-2 text-xl font-bold text-gray-900 hover:text-hub-primary transition duration-300"
+                >
+                  Welcome Coach Taylor, Our New Athletics Director
+                </h3>
+                <p class="mt-3 text-gray-500 line-clamp-3">
+                  We are thrilled to introduce Coach Taylor, who brings over 15
+                  years of experience in competitive sports and youth
+                  development. Find out about upcoming tryouts!
+                </p>
+              </div>
+              <div class="mt-4">
+                <a
+                  href="#"
+                  class="text-hub-primary font-semibold hover:underline"
+                >
+                  View Profile &rarr;
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <div class="text-center pt-4">
+            <a
+              href="#"
+              class="inline-flex items-center px-6 py-3 border border-hub-primary text-base font-medium rounded-lg text-hub-primary hover:bg-hub-primary hover:text-white transition duration-300"
+            >
+              View All Archives
+            </a>
+          </div>
+        </section>
+
+        <!-- RIGHT COLUMN: Upcoming Events & Quick Resources (1/3 width on desktop) -->
+        <div class="mt-10 lg:mt-0 lg:col-span-1 space-y-8">
+          <!-- Upcoming Calendar -->
+          <section id="calendar" class="bg-white p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-bold text-gray-900 mb-4 border-b pb-2">
+              Upcoming Events
+            </h3>
+
+            <ul class="space-y-4">
+              <!-- Event 1 -->
+              <li class="flex items-start">
+                <div
+                  class="flex-shrink-0 text-center w-12 mr-3 p-1 rounded-lg bg-hub-primary/10"
+                >
+                  <span class="block text-sm font-bold text-hub-primary"
+                    >NOV</span
+                  >
+                  <span
+                    class="block text-lg font-extrabold text-hub-primary leading-none"
+                    >8</span
+                  >
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="text-sm font-medium text-gray-900 truncate">
+                    Middle School Dance
+                  </p>
+                  <p class="text-sm text-gray-500">7:00 PM - 9:00 PM, Gym</p>
+                </div>
+              </li>
+
+              <!-- Event 2 -->
+              <li class="flex items-start">
+                <div
+                  class="flex-shrink-0 text-center w-12 mr-3 p-1 rounded-lg bg-hub-primary/10"
+                >
+                  <span class="block text-sm font-bold text-hub-primary"
+                    >NOV</span
+                  >
+                  <span
+                    class="block text-lg font-extrabold text-hub-primary leading-none"
+                    >15</span
+                  >
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="text-sm font-medium text-gray-900 truncate">
+                    Picture Day (Retakes)
+                  </p>
+                  <p class="text-sm text-gray-500">All Day, Auditorium</p>
+                </div>
+              </li>
+
+              <!-- Event 3 -->
+              <li class="flex items-start">
+                <div
+                  class="flex-shrink-0 text-center w-12 mr-3 p-1 rounded-lg bg-hub-primary/10"
+                >
+                  <span class="block text-sm font-bold text-hub-primary"
+                    >NOV</span
+                  >
+                  <span
+                    class="block text-lg font-extrabold text-hub-primary leading-none"
+                    >22</span
+                  >
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p class="text-sm font-medium text-gray-900 truncate">
+                    Half Day / Teacher Planning
+                  </p>
+                  <p class="text-sm text-gray-500">Dismissal at 11:30 AM</p>
+                </div>
+              </li>
+            </ul>
+            <a
+              href="#"
+              class="mt-4 block text-center text-sm font-medium text-hub-primary hover:text-emerald-700"
+              >View Full Calendar</a
+            >
+          </section>
+
+          <!-- Quick Resources -->
+          <section id="resources" class="bg-white p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-bold text-gray-900 mb-4 border-b pb-2">
+              Quick Resources
+            </h3>
+
+            <div class="space-y-3">
+              <a
+                href="#"
+                class="flex items-center p-3 rounded-lg bg-hub-background hover:bg-gray-100 transition duration-300"
+              >
+                <svg
+                  class="h-5 w-5 text-hub-primary mr-3 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13M3.463 4.298l.583.583 1.053 1.053A8 8 0 003 12a8 8 0 0013.91 4.702l-1.053-1.053-.583-.583M16 8l2.675 3.14M16 16l2.675-3.14M12 18.747V5.747M16 12l-2.675-3.14L10.65 12l2.675 3.14"
+                  ></path>
+                </svg>
+                <span class="font-medium text-gray-700">Staff Directory</span>
+              </a>
+              <a
+                href="#"
+                class="flex items-center p-3 rounded-lg bg-hub-background hover:bg-gray-100 transition duration-300"
+              >
+                <svg
+                  class="h-5 w-5 text-hub-primary mr-3 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <span class="font-medium text-gray-700">Lunch Menu</span>
+              </a>
+              <a
+                href="#"
+                class="flex items-center p-3 rounded-lg bg-hub-background hover:bg-gray-100 transition duration-300"
+              >
+                <svg
+                  class="h-5 w-5 text-hub-primary mr-3 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.663 17h4.673M12 3v18M3 8.242h18M3 15.758h18M5 12h14"
+                  ></path>
+                </svg>
+                <span class="font-medium text-gray-700"
+                  >School Closures & Holidays</span
+                >
+              </a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer / Contact Section -->
+    <footer class="bg-gray-900 text-white mt-12">
+      <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+        <p class="text-center text-lg font-bold text-hub-primary">
+          Oakwood Academy
+        </p>
+
+        <div class="mt-8 flex justify-center space-x-6">
+          <!-- Contact Information -->
+          <p class="text-sm text-gray-400">
+            <span class="font-bold">Address:</span> 456 Community Drive,
+            Studentville, CA 90210
+          </p>
+          <p class="text-sm text-gray-400">
+            <span class="font-bold">Email:</span> info@oakwood.edu
+          </p>
+        </div>
+
+        <p class="mt-8 text-center text-sm text-gray-500">
+          &copy; 2025 Oakwood Academy. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
